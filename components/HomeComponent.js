@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
-import { Card} from 'react-native-elements';
+import { Card } from 'react-native-elements';
 import { CAMPSITES, Campsites } from '../shared/campsites';
 import { PARTNERS, Partners } from '../shared/partners';
 import { PROMOTIONS, Promotions } from '../shared/promotions';
@@ -12,7 +12,7 @@ function RenderItem({item}){
                 featuredTitle={item.name}
                 image={require('./images/react-lake.jpg')}>
                 <Text
-                    style={{maargin: 10}}>
+                    style={{margin: 10}}>
                     {item.description}
                 </Text>
             </Card>
