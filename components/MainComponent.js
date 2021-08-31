@@ -12,7 +12,7 @@ import { createAppContainer } from 'react-navigation';
 
 const ContactNavigator = createStackNavigator(
     {
-        About: { screen: Contact },
+        Contact: { screen: Contact },
         
        },
        {
