@@ -343,16 +343,27 @@ class Main extends Component {
         this.props.fetchPromotions();
         this.props.fetchPartners();
 
-        NetInfo.fetch().then(connectionInfo => {
+        this.showNetInfo();
+
+        /* NetInfo.fetch().then(connectionInfo => {
             (Platform.OS === 'ios')
                 ? Alert.alert('Intial Network Connectivity Type:', connectionInfo.type)
                 : ToastAndroid.show('Intial Network Connectivity Type: ' +
                     connectionInfo.type, ToastAndroid.LONG );
-        });
+        }); */
 
         this.unsubscribeNetInfo = NetInfo.addEventListener(connectionInfo => {
             this.handleConnectivityChange(connectionInfo);
         });
+    }
+
+    async showNetInfo(){
+        const connectionInfo = await NetInfo.fetch();
+        (Platform.OS === 'ios')
+                ? Alert.alert('Intial Network Connectivity Type:', connectionInfo.type)
+                : ToastAndroid.show('Intial Network Connectivity Type: ' +
+                    connectionInfo.type, ToastAndroid.LONG );
+
     }
 
     componentWillUnmount(){
